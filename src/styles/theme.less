@@ -1,0 +1,412 @@
+:root {
+    --system-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --heading-font-family: "Circular Bold";
+    --size-xxxl: 64px;
+    --size-xxl: 48px;
+    --size-xl: 32px;
+    --size-l: 24px;
+    --size-m: 16px;
+    --size-s: 12px;
+    --size-xs: 8px;
+    --size-xxs: 4px;
+    --size-xxxs: 2px;
+    --border-radius-xs: 2px;
+    --border-radius-s: 4px;
+    --border-radius-m: 8px;
+    --border-radius-l: 16px;
+    --border-radius-max: 9999px;
+    --color-brand-accent: #e5a00dff;
+    --color-static-perrywinkle: #88aaffff;
+    --color-static-yellow: #e5a00dff;
+    --color-static-grey-1: #282a2dff;
+    --color-static-grey-2: #3f4245ff;
+    --color-static-grey-3: #575b61ff;
+    --color-static-grey-4: #868c96ff;
+    --color-static-grey-5: #b3bac1ff;
+    --color-static-grey-6: #e0e3e6ff;
+    --color-static-grey-7: #f2f3f4ff;
+    --color-static-grey-8: #f9f9f9ff;
+    --color-static-white: #ffffffff;
+    --color-static-red: #c72c05ff;
+    --color-static-green: #4db288ff;
+    --color-alert-highlight: #f93706ff;
+    --color-confirm-highlight: #4db288ff;
+    --color-overlay-background: #1f1f1fff;
+    --color-text-primary: #ffffffff;
+    --color-text-default: #ffffffcc;
+    --color-text-muted: #ffffff99;
+    --color-text-accent: #e5a00dff;
+    --color-text-alert: #952104ff;
+    --color-text-confirm: #366350ff;
+    --color-text-on-focus: #1c1c1cff;
+    --color-text-on-accent: #1c1c1cff;
+    --color-text-on-alert: #ffffffff;
+    --color-text-on-confirm: #ffffffff;
+    --color-background-backdrop: #000000cc;
+    --color-background-control: #ffffff1a;
+    --color-background-card: #0000004d;
+    --color-background-modal: #1d1f20ff;
+    --color-background-focus: #ffffffff;
+    --color-background-accent: #e5a00dff;
+    --color-background-alert: #952104ff;
+    --color-background-alert-muted: #190501ff;
+    --color-background-confirm: #366350ff;
+    --color-background-success: #08120eff;
+    --color-background-informative: #0a0f19ff;
+    --color-background-accent-focus: #f3b125ff;
+    --color-background-alert-focus: #a12303ff;
+    --color-background-control-focus: #ffffff26;
+    --color-highlight-focus: #ffffffff;
+    --color-highlight-control-focus: #88aaffcc;
+    --color-highlight-alert: #f93706ff;
+    --color-highlight-success: #4db288ff;
+    --color-highlight-informative: #6699ffff;
+    --color-highlight-modal: #0000004d;
+    --color-primary-background-100: #ffffffff;
+    --color-primary-background-80: #ffffffcc;
+    --color-primary-background-60: #ffffff99;
+    --color-primary-background-30: #ffffff4d;
+    --color-primary-background-10: #ffffff1a;
+    --color-primary-background-5: #ffffff0d;
+    --color-primary-foreground-100: #ffffffff;
+    --color-primary-foreground-80: #ffffffcc;
+    --color-primary-foreground-60: #ffffff99;
+    --color-primary-foreground-30: #ffffff4d;
+    --color-primary-foreground-10: #ffffff1a;
+    --color-primary-foreground-5: #ffffff0d;
+    --color-surface-background-100: #000000ff;
+    --color-surface-background-80: #000000cc;
+    --color-surface-background-60: #00000099;
+    --color-surface-background-30: #0000004d;
+    --color-surface-background-10: #0000001a;
+    --color-surface-background-5: #0000000d;
+    --color-surface-foreground-100: #ffffffff;
+    --color-surface-foreground-80: #ffffffcc;
+    --color-surface-foreground-60: #ffffff99;
+    --color-surface-foreground-30: #ffffff4d;
+    --color-surface-foreground-10: #ffffff1a;
+    --color-surface-foreground-5: #ffffff0d;
+    --color-ultrablur-tl: #000000ff;
+    --color-ultrablur-tr: #000000ff;
+    --color-ultrablur-br: #242e33ff;
+    --color-ultrablur-bl: #030708ff;
+    --font-tv-display-1-font-size: 80px;
+    --font-tv-display-1-text-decoration: none;
+    --font-tv-display-1-letter-spacing: 0;
+    --font-tv-display-1-font-weight: 700;
+    --font-tv-display-1-font-style: normal;
+    --font-tv-display-1-font-stretch: normal;
+    --font-tv-display-1-font-family: var(--heading-font-family);
+    --font-tv-display-1-line-height: 96px;
+    --font-tv-display-1-text-transform: none;
+    --font-tv-display-2-font-size: 72px;
+    --font-tv-display-2-text-decoration: none;
+    --font-tv-display-2-letter-spacing: 0;
+    --font-tv-display-2-font-weight: 700;
+    --font-tv-display-2-font-style: normal;
+    --font-tv-display-2-font-stretch: normal;
+    --font-tv-display-2-font-family: var(--heading-font-family);
+    --font-tv-display-2-line-height: 88px;
+    --font-tv-display-2-text-transform: none;
+    --font-tv-display-3-font-size: 64px;
+    --font-tv-display-3-text-decoration: none;
+    --font-tv-display-3-letter-spacing: 0;
+    --font-tv-display-3-font-weight: 700;
+    --font-tv-display-3-font-style: normal;
+    --font-tv-display-3-font-stretch: normal;
+    --font-tv-display-3-font-family: var(--heading-font-family);
+    --font-tv-display-3-line-height: 72px;
+    --font-tv-display-3-text-transform: none;
+    --font-tv-display-copy-font-size: 32px;
+    --font-tv-display-copy-text-decoration: none;
+    --font-tv-display-copy-letter-spacing: 0;
+    --font-tv-display-copy-font-weight: 500;
+    --font-tv-display-copy-font-style: normal;
+    --font-tv-display-copy-font-stretch: normal;
+    --font-tv-display-copy-font-family: var(--system-font-family);
+    --font-tv-display-copy-line-height: 48px;
+    --font-tv-display-copy-text-transform: none;
+    --font-tv-heading-1-font-size: 56px;
+    --font-tv-heading-1-text-decoration: none;
+    --font-tv-heading-1-letter-spacing: 0;
+    --font-tv-heading-1-font-weight: 700;
+    --font-tv-heading-1-font-style: normal;
+    --font-tv-heading-1-font-stretch: normal;
+    --font-tv-heading-1-font-family: var(--heading-font-family);
+    --font-tv-heading-1-line-height: 64px;
+    --font-tv-heading-1-text-transform: none;
+    --font-tv-heading-2-font-size: 32px;
+    --font-tv-heading-2-text-decoration: none;
+    --font-tv-heading-2-letter-spacing: 0;
+    --font-tv-heading-2-font-weight: 700;
+    --font-tv-heading-2-font-style: normal;
+    --font-tv-heading-2-font-stretch: normal;
+    --font-tv-heading-2-font-family: var(--heading-font-family);
+    --font-tv-heading-2-line-height: 48px;
+    --font-tv-heading-2-text-transform: none;
+    --font-tv-heading-3-font-size: 28px;
+    --font-tv-heading-3-text-decoration: none;
+    --font-tv-heading-3-letter-spacing: 0;
+    --font-tv-heading-3-font-weight: 700;
+    --font-tv-heading-3-font-style: normal;
+    --font-tv-heading-3-font-stretch: normal;
+    --font-tv-heading-3-font-family: var(--heading-font-family);
+    --font-tv-heading-3-line-height: 32px;
+    --font-tv-heading-3-text-transform: none;
+    --font-tv-body-1-font-size: 26px;
+    --font-tv-body-1-text-decoration: none;
+    --font-tv-body-1-letter-spacing: 0;
+    --font-tv-body-1-font-weight: 400;
+    --font-tv-body-1-font-style: normal;
+    --font-tv-body-1-font-stretch: normal;
+    --font-tv-body-1-font-family: var(--system-font-family);
+    --font-tv-body-1-line-height: 32px;
+    --font-tv-body-1-text-transform: none;
+    --font-tv-body-2-font-size: 24px;
+    --font-tv-body-2-text-decoration: none;
+    --font-tv-body-2-letter-spacing: 0;
+    --font-tv-body-2-font-weight: 400;
+    --font-tv-body-2-font-style: normal;
+    --font-tv-body-2-font-stretch: normal;
+    --font-tv-body-2-font-family: var(--system-font-family);
+    --font-tv-body-2-line-height: 32px;
+    --font-tv-body-2-text-transform: none;
+    --font-tv-body-3-font-size: 22px;
+    --font-tv-body-3-text-decoration: none;
+    --font-tv-body-3-letter-spacing: 0;
+    --font-tv-body-3-font-weight: 400;
+    --font-tv-body-3-font-style: normal;
+    --font-tv-body-3-font-stretch: normal;
+    --font-tv-body-3-font-family: var(--system-font-family);
+    --font-tv-body-3-line-height: 28px;
+    --font-tv-body-3-text-transform: none;
+    --font-tv-button-1-font-size: 28px;
+    --font-tv-button-1-text-decoration: none;
+    --font-tv-button-1-letter-spacing: 0;
+    --font-tv-button-1-font-weight: 700;
+    --font-tv-button-1-font-style: normal;
+    --font-tv-button-1-font-stretch: normal;
+    --font-tv-button-1-font-family: var(--system-font-family);
+    --font-tv-button-1-line-height: 32px;
+    --font-tv-button-1-text-transform: none;
+    --font-tv-button-2-font-size: 24px;
+    --font-tv-button-2-text-decoration: none;
+    --font-tv-button-2-letter-spacing: 0;
+    --font-tv-button-2-font-weight: 500;
+    --font-tv-button-2-font-style: normal;
+    --font-tv-button-2-font-stretch: normal;
+    --font-tv-button-2-font-family: var(--system-font-family);
+    --font-tv-button-2-line-height: 32px;
+    --font-tv-button-2-text-transform: none;
+    --font-tv-caption-font-size: 20px;
+    --font-tv-caption-text-decoration: none;
+    --font-tv-caption-letter-spacing: 0;
+    --font-tv-caption-font-weight: 600;
+    --font-tv-caption-font-style: normal;
+    --font-tv-caption-font-stretch: normal;
+    --font-tv-caption-font-family: var(--system-font-family);
+    --font-tv-caption-line-height: 24px;
+    --font-tv-caption-text-transform: none;
+    --font-tv-dep-heading-1-font-size: 68px;
+    --font-tv-dep-heading-1-text-decoration: none;
+    --font-tv-dep-heading-1-letter-spacing: 0;
+    --font-tv-dep-heading-1-font-weight: 700;
+    --font-tv-dep-heading-1-font-style: normal;
+    --font-tv-dep-heading-1-font-stretch: normal;
+    --font-tv-dep-heading-1-font-family: var(--heading-font-family);
+    --font-tv-dep-heading-1-line-height: 72px;
+    --font-tv-dep-heading-1-text-transform: none;
+    --font-tv-dep-heading-2-font-size: 40px;
+    --font-tv-dep-heading-2-text-decoration: none;
+    --font-tv-dep-heading-2-letter-spacing: 0;
+    --font-tv-dep-heading-2-font-weight: 700;
+    --font-tv-dep-heading-2-font-style: normal;
+    --font-tv-dep-heading-2-font-stretch: normal;
+    --font-tv-dep-heading-2-font-family: var(--heading-font-family);
+    --font-tv-dep-heading-2-line-height: 48px;
+    --font-tv-dep-heading-2-text-transform: none;
+    --font-tv-dep-heading-3-font-size: 32px;
+    --font-tv-dep-heading-3-text-decoration: none;
+    --font-tv-dep-heading-3-letter-spacing: 0;
+    --font-tv-dep-heading-3-font-weight: 700;
+    --font-tv-dep-heading-3-font-style: normal;
+    --font-tv-dep-heading-3-font-stretch: normal;
+    --font-tv-dep-heading-3-font-family: var(--heading-font-family);
+    --font-tv-dep-heading-3-line-height: 48px;
+    --font-tv-dep-heading-3-text-transform: none;
+    --font-tv-dep-body-1-font-size: 28px;
+    --font-tv-dep-body-1-text-decoration: none;
+    --font-tv-dep-body-1-letter-spacing: 0;
+    --font-tv-dep-body-1-font-weight: 600;
+    --font-tv-dep-body-1-font-style: normal;
+    --font-tv-dep-body-1-font-stretch: normal;
+    --font-tv-dep-body-1-font-family: var(--system-font-family);
+    --font-tv-dep-body-1-line-height: 40px;
+    --font-tv-dep-body-1-text-transform: none;
+    --font-tv-dep-body-2-font-size: 24px;
+    --font-tv-dep-body-2-text-decoration: none;
+    --font-tv-dep-body-2-letter-spacing: 0;
+    --font-tv-dep-body-2-font-weight: 400;
+    --font-tv-dep-body-2-font-style: normal;
+    --font-tv-dep-body-2-font-stretch: normal;
+    --font-tv-dep-body-2-font-family: var(--system-font-family);
+    --font-tv-dep-body-2-line-height: 32px;
+    --font-tv-dep-body-2-text-transform: none;
+    --font-tv-dep-body-3-font-size: 20px;
+    --font-tv-dep-body-3-text-decoration: none;
+    --font-tv-dep-body-3-letter-spacing: 0;
+    --font-tv-dep-body-3-font-weight: 400;
+    --font-tv-dep-body-3-font-style: normal;
+    --font-tv-dep-body-3-font-stretch: normal;
+    --font-tv-dep-body-3-font-family: var(--system-font-family);
+    --font-tv-dep-body-3-line-height: 32px;
+    --font-tv-dep-body-3-text-transform: none;
+    --font-tv-dep-label-1-font-size: 24px;
+    --font-tv-dep-label-1-text-decoration: none;
+    --font-tv-dep-label-1-letter-spacing: 0;
+    --font-tv-dep-label-1-font-weight: 400;
+    --font-tv-dep-label-1-font-style: normal;
+    --font-tv-dep-label-1-font-stretch: normal;
+    --font-tv-dep-label-1-font-family: var(--system-font-family);
+    --font-tv-dep-label-1-line-height: 32px;
+    --font-tv-dep-label-1-text-transform: none;
+    --font-tv-dep-label-2-font-size: 20px;
+    --font-tv-dep-label-2-text-decoration: none;
+    --font-tv-dep-label-2-letter-spacing: -0.4;
+    --font-tv-dep-label-2-font-weight: 400;
+    --font-tv-dep-label-2-font-style: normal;
+    --font-tv-dep-label-2-font-stretch: normal;
+    --font-tv-dep-label-2-font-family: var(--system-font-family);
+    --font-tv-dep-label-2-line-height: 24px;
+    --font-tv-dep-label-2-text-transform: none;
+    --font-tv-dep-label-3-font-size: 18px;
+    --font-tv-dep-label-3-text-decoration: none;
+    --font-tv-dep-label-3-letter-spacing: -0.36;
+    --font-tv-dep-label-3-font-weight: 700;
+    --font-tv-dep-label-3-font-style: normal;
+    --font-tv-dep-label-3-font-stretch: normal;
+    --font-tv-dep-label-3-font-family: var(--system-font-family);
+    --font-tv-dep-label-3-line-height: 24px;
+    --font-tv-dep-label-3-text-transform: none;
+    --shadow-low-radius: 4px;
+    --shadow-low-color: #00000033;
+    --shadow-low-offsetX: 0px;
+    --shadow-low-offsetY: 4px;
+    --shadow-low-spread: 0px;
+    --shadow-high-radius: 16px;
+    --shadow-high-color: #00000033;
+    --shadow-high-offsetX: 0px;
+    --shadow-high-offsetY: 4px;
+    --shadow-high-spread: 0px;
+    --shadow-modal-footer-radius: 10px;
+    --shadow-modal-footer-color: #00000040;
+    --shadow-modal-footer-offsetX: 0px;
+    --shadow-modal-footer-offsetY: -4px;
+    --shadow-modal-footer-spread: 0px;
+}
+
+@font-face {
+    font-family: "Circular";
+    src: url(/fonts/CircularXX-Regular.woff2);
+}
+
+@font-face {
+    font-family: "Circular Bold";
+    src: url(/fonts/CircularXX-Bold.woff2);
+}
+
+body{
+    color: var(--color-text-default);
+}
+
+.text-heading-1{
+    font-size: var(--font-tv-heading-1-font-size);
+    line-height: var(--font-tv-heading-1-line-height);
+    font-family: var(--font-tv-heading-1-font-family);
+    font-weight: var(--font-tv-heading-1-font-weight);
+}
+
+.text-heading-2{
+    font-size: var(--font-tv-heading-2-font-size);
+    line-height: var(--font-tv-heading-2-line-height);
+    font-family: var(--font-tv-heading-2-font-family);
+    font-weight: var(--font-tv-heading-2-font-weight);
+}
+
+.text-body-3{
+    font-size: var(--font-tv-heading-3-font-size);
+    line-height: var(--font-tv-heading-3-line-height);
+    font-family: var(--font-tv-heading-3-font-family);
+    font-weight: var(--font-tv-heading-3-font-weight);
+}
+
+.text-body-1{
+    font-size: var(--font-tv-body-1-font-size);
+    line-height: var(--font-tv-body-1-line-height);
+    font-family: var(--font-tv-body-1-font-family);
+    font-weight: var(--font-tv-body-1-font-weight);
+}
+
+.text-body-2{
+    font-size: var(--font-tv-body-2-font-size);
+    line-height: var(--font-tv-body-2-line-height);
+    font-family: var(--font-tv-body-2-font-family);
+    font-weight: var(--font-tv-body-2-font-weight);
+}
+
+.text-body-3{
+    font-size: var(--font-tv-body-3-font-size);
+    line-height: var(--font-tv-body-3-line-height);
+    font-family: var(--font-tv-body-3-font-family);
+    font-weight: var(--font-tv-body-3-font-weight);
+}
+
+.text-button-1{
+    font-size: var(--font-tv-button-1-font-size);
+    line-height: var(--font-tv-button-1-line-height);
+    font-family: var(--font-tv-button-1-font-family);
+    font-weight: var(--font-tv-button-1-font-weight);
+}
+
+.text-button-2{
+    font-size: var(--font-tv-button-2-font-size);
+    line-height: var(--font-tv-button-2-font-size);
+    font-family: var(--font-tv-button-2-font-family);
+    font-weight: var(--font-tv-button-2-font-size);
+}
+
+.text-caption{
+    font-size: var(--font-tv-caption-font-size);
+    line-height: var(--font-tv-caption-font-size);
+    font-family: var(--font-tv-caption-font-family);
+    font-weight: var(--font-tv-caption-font-size);
+}
+
+/* Set some good defaults for basic elements */
+h1{
+    &:extend(.text-heading-1);
+}
+
+h2{
+    &:extend(.text-heading-2);
+}
+
+h3{
+    &:extend(.text-heading-3);
+}
+
+p{
+    &:extend(.text-body-1);
+}
+
+button{
+    &:extend(.text-button-1);
+}
+
+caption{
+    &:extend(.text-caption-1);
+}
+
+*:focus {
+    outline: none;
+}
