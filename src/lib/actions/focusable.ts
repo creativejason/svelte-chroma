@@ -1,12 +1,11 @@
-// @ts-nocheck
-export function hoverToFocus(node) {
+export function hoverToFocus(node: HTMLElement) {
 
     const handleMouseEnter = () => {
         node.focus();
     }
     
     node.addEventListener("mouseenter", handleMouseEnter, true);
-    node.setAttribute("tabindex", 0);
+    node.setAttribute("tabindex", "0");
 
 	return {
 		destroy() {

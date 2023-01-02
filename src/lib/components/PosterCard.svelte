@@ -41,6 +41,7 @@
             border: solid 2px black;
             outline: 2px solid var(--color-background-focus);
             box-shadow: 16px 16px 16px rgba(0,0,0,.5);
+            z-index: 20;
         }
         /*&:first-child{
             margin-left: 112px;

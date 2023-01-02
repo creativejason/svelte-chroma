@@ -2,7 +2,7 @@
 
     import { hoverToFocus } from "$lib/actions/focusable"  
     export let expanded:boolean = false;     
-    export let icon:ConstructorOfATypedSvelteComponent;
+    export let icon:any;
     export let title:string = "";
     export let subtitle:string = "";
 

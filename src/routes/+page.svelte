@@ -1,13 +1,14 @@
 <script lang="ts">
 	
-	import { currentTitleId } from '$lib/stores/app-state.js';
-	import Sidebar from '$lib/components/sidebar/sidebar.svelte';
-	import ContentContainer from '$lib/components/content-container.svelte';
-	import TapBar from '$lib/components/tabs/tap-bar.svelte';
-	import TabbarMenuItem from '$lib/components/buttons/tab-button.svelte';
-	import Metadata from '$lib/components/metadata/metadata.svelte';
-	import Hub from '$lib/components/cards/hub.svelte';
-	import HubGroup from '$lib/components/layout/hub-group.svelte';
+	import { currentTitleId } from '$lib/stores/AppState.js';
+	import Sidebar from '$lib/components/Sidebar.svelte';
+	import ContentContainer from '$lib/components/ContentContainer.svelte';
+	import TapBar from '$lib/components/TabBar.svelte';
+	import TabbarMenuItem from '$lib/components/TabButton.svelte';
+	import Metadata from '$lib/components/Metadata.svelte';
+	import Hub from '$lib/components/Hub.svelte';
+	import HubGroup from '$lib/components/HubGroup.svelte';
+	import { onMount } from 'svelte';
 
 	export let data;
 	const { trending, popular } = data;
@@ -23,18 +24,31 @@
 			}
 		}, 1000);
 	}
-</script>
 
+	onMount(async () => {
+		currentTitleId.set(trending[0].id);
+	});
+
+
+
+
+</script>
+<!--
 <Sidebar />
+-->
 <ContentContainer>
+	<!--
 	<TapBar>
 		<TabbarMenuItem label="Home" active={true} />
 		<TabbarMenuItem label="Watchlist" />
 	</TapBar>
+	-->
+	
 	<Metadata/>
-	<HubGroup>
-		<Hub metadataItems={trending} title="Trending Movies" on:cardFocus={handleCardFocus} />
-		<Hub metadataItems={popular} title="Popular Movies" on:cardFocus={handleCardFocus} />
-		<Hub metadataItems={popular} title="Popular Movies" on:cardFocus={handleCardFocus} />
-	</HubGroup>
+	
 </ContentContainer>
+<HubGroup>
+	<Hub metadataItems={trending} title="Trending Movies" on:cardFocus={handleCardFocus} />
+	<Hub metadataItems={popular} title="Popular Movies" on:cardFocus={handleCardFocus} />
+	<Hub metadataItems={popular} title="Popular Movies" on:cardFocus={handleCardFocus} />
+</HubGroup>

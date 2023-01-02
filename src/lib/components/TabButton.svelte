@@ -5,23 +5,19 @@
 
 </script>
 
-<div class="tabbar-item dpad-focusable" class:active tabindex="0">
-    <h2>{label}</h2>
-</div>
+<button class="text-button-2 dpad-focusable" class:active tabindex="0">
+    {label}
+</button>
 
 
 <style lang="less">
 
-    .tabbar-item{
+    button{
         border-radius: 8px;
         position: relative;
-        h2{
-            font-size: var(--font-tv-button-2-font-size);
-            line-height: var(--font-tv-button-2-line-height);
-            font-family: var(--system-font-family);
-            font-weight: var(--font-tv-button-2-font-weight);
-            padding: var(--size-m);
-        }
+        display: block;
+        color: var(--color-text-default);
+        padding: var(--size-m);
         &.active:after{
             content: '';
             position: absolute;
@@ -30,6 +26,8 @@
             height: 4px;
             background-color: orange;
             border-radius: 8px;
+            bottom: 0;
+            left: 0;
         }
         &:hover, &:focus{
             background-color: var(--color-background-focus);

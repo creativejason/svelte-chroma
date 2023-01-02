@@ -1,10 +1,9 @@
-import { error } from '@sveltejs/kit';
 import sharp from 'sharp';
 
 const devCache = new Map();
 
-/** @type {import('../$types').RequestHandler} */
-export async function GET({ url }) {
+
+export async function GET({ url }:any) {
     const imageUrl = String(url.searchParams.get('url'));
 
   // If we have the trimmed version of the image in cache, return it

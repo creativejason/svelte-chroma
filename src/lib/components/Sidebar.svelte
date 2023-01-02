@@ -1,14 +1,14 @@
 <script lang="ts">
-    import SidebarMenuItem from "$lib/components/sidebar/sidebar-menu-item.svelte";
-    import SidebarProfileItem from "$lib/components/sidebar/sidebar-profile-item.svelte";
+    import SidebarMenuItem from "$lib/components/SidebarMenuItem.svelte";
+    import SidebarProfileItem from "$lib/components/SidebarAvatarItem.svelte";
 
     // Icons
-    import Home from "$lib/icons/home.svg";
-    import Search from "$lib/icons/search.svg";
-    import Movies from "$lib/icons/movie.svg";
-    import Shows from "$lib/icons/tv.svg";
-    import LiveTV from "$lib/icons/live-tv.svg";
-    import More from "$lib/icons/overflow-horizontal-alt.svg";
+    import Home from "$lib/assets/icons/home.svg";
+    import Search from "$lib/assets/icons/search.svg";
+    import Movies from "$lib/assets/icons/movie.svg";
+    import Shows from "$lib/assets/icons/tv.svg";
+    import LiveTV from "$lib/assets/icons/live-tv.svg";
+    import More from "$lib/assets/icons/overflow-horizontal-alt.svg";
 
     let expanded = false;
 

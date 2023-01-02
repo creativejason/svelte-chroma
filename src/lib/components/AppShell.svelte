@@ -1,8 +1,8 @@
 <script lang="ts">
 
-    import { DpadController, DebugController } from '@gauntface/dpad-nav';
+    //import { DpadController, DebugController } from '@gauntface/dpad-nav';
     import { getTMDBImageUrlFromPath } from "$lib/utils/utils";
-    import { currentTitle } from "$lib/stores/app-state.js"
+    import { currentTitle } from "$lib/stores/AppState.js"
     import { onMount } from 'svelte';
     import Vibrant from 'node-vibrant';
     
@@ -13,7 +13,7 @@
         br: "#252525"
     };
 
-    let artworkImage = "url(/img/placeholder-artwork.jpg)";
+    let artworkImage = "";
 
     $: {
         if($currentTitle){
@@ -30,14 +30,26 @@
             })
         }
         else {
-            artworkImage = "url(/img/placeholder-artwork.jpg)";
+            artworkImage = "";
         }
 	}
 
     
     onMount(async () => {
-        const dpad = new DpadController();
-        dpad.update();
+        //const dpad = new DpadController();
+        //dpad.update();
+        await import('$lib/utils/spatial_navigation.js');
+        let SpatialNavigation = (<any>window).SpatialNavigation;
+        SpatialNavigation.init();
+        SpatialNavigation.add({
+            selector: '.dpad-focusable',
+            straightOnly: true,
+            rememberSource: true,
+        });
+        SpatialNavigation.makeFocusable();
+        SpatialNavigation.focus();
+        
+
     });
     
     
@@ -98,23 +110,24 @@
         height: 100%;
         position: relative;
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: column nowrap;
         z-index: 1;
         overflow: hidden;
+        gap: 32px;
     }
 
     .artwork{
         position: absolute;
-        width: 60%;
-        height: 60%;
+        width: 70%;
+        height: 70%;
         background-color: black;
         top:0;
         right:0;
         background-image: var(--artwork-image);
         background-size: contain;
-        mask-image: url('/img/artwork-mask.svg');
+        mask-image: url('$lib/assets/images/artwork-mask.svg');
         mask-size: 100%;
-        -webkit-mask-image: url('/img/artwork-mask.svg'); 
+        -webkit-mask-image: url('$lib/assets/images/artwork-mask.svg'); 
         -webkit-mask-size: 100%; 
         background-position: center top;
         transition: background-image 1s ease-in-out;

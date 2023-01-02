@@ -9,7 +9,6 @@
         flex-flow: column;
         gap: 32px;
         width:100%;
-        overflow: hidden;
     }
 </style>
 
