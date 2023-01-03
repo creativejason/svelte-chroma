@@ -5,6 +5,7 @@
     import { currentTitle } from "$lib/stores/AppState.js"
     import { onMount } from 'svelte';
     import Vibrant from 'node-vibrant';
+    //import * as Vibrant from 'node-vibrant'
     
     export let ultrablur: { tl: string; tr: string; bl: string; br: string } = {
         tl: "#333333",
@@ -121,15 +122,15 @@
         width: 70%;
         height: 70%;
         background-color: black;
-        top:0;
-        right:0;
+        top: 0;
+        right: 0;
         background-image: var(--artwork-image);
-        background-size: contain;
-        mask-image: url('$lib/assets/images/artwork-mask.svg');
-        mask-size: 100%;
-        -webkit-mask-image: url('$lib/assets/images/artwork-mask.svg'); 
-        -webkit-mask-size: 100%; 
-        background-position: center top;
+        background-size: cover;
+        background-position: 0 0;
+        mask-image: url(/src/lib/assets/images/artwork-mask.svg);
+        mask-size: 100% 100%;
+        -webkit-mask-image: url(/src/lib/assets/images/artwork-mask.svg);
+        -webkit-mask-size: 100% 100%;
         transition: background-image 1s ease-in-out;
     }
 
