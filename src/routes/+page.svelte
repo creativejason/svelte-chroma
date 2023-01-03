@@ -10,7 +10,7 @@
 	import HubGroup from '$lib/components/HubGroup.svelte';
 	import { onMount } from 'svelte';
 
-	export let data;
+	export let data:any;
 	const { trending, popular } = data;
 	let lastTitleFocused: any = null;
 
@@ -26,6 +26,7 @@
 	}
 
 	onMount(async () => {
+		console.log(data);
 		currentTitleId.set(trending[0].id);
 	});
 
