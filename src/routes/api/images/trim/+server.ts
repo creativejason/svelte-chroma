@@ -1,10 +1,10 @@
+import type { RequestEvent } from '@sveltejs/kit';
 import sharp from 'sharp';
-
 const devCache = new Map();
 
-
-export async function GET({ url }:any) {
-    const imageUrl = String(url.searchParams.get('url'));
+export async function GET({url}:RequestEvent) {
+  if(!url.searchParams.has('url')) return;    
+  const imageUrl = String(url.searchParams.get('url'));
 
   // If we have the trimmed version of the image in cache, return it
   if(devCache.has(imageUrl)){
@@ -13,10 +13,9 @@ export async function GET({ url }:any) {
   }
   
   const res = await fetch(imageUrl);
-  const imageBuf = await res.arrayBuffer();
-  const bytes = new Uint8Array(imageBuf);
+  const buffer = await res.arrayBuffer();
+  const bytes = new Uint8Array(buffer);
 
-  console.log(imageUrl);
   const data = await sharp(bytes)
     .trim()
     .resize({ height: 120 })
