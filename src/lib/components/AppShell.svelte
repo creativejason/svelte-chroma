@@ -1,11 +1,8 @@
 <script lang="ts">
-
-    //import { DpadController, DebugController } from '@gauntface/dpad-nav';
-    import { getTMDBImageUrlFromPath } from "$lib/utils/utils";
     import { currentTitle } from "$lib/stores/AppState.js"
     import { onMount } from 'svelte';
     import Vibrant from 'node-vibrant';
-    //import * as Vibrant from 'node-vibrant'
+	import { getTMDBImageUrlFromPath } from "$lib/services/tmdb";
     
     export let ultrablur: { tl: string; tr: string; bl: string; br: string } = {
         tl: "#333333",
@@ -16,10 +13,15 @@
 
     let artworkImage = "";
 
+    // Update UltraBlur when a new title is set
+    // TODO: Move this to current title detals values
     $: {
         if($currentTitle){
-            artworkImage = `url(${getTMDBImageUrlFromPath($currentTitle.backdrop_path, 1280)})`;
+            artworkImage = getTMDBImageUrlFromPath($currentTitle.backdrop_path, 1280);
+            console.log(artworkImage);
+
             let v = new Vibrant(getTMDBImageUrlFromPath($currentTitle.backdrop_path, 300))
+            //let v = Vibrant.from(getTMDBImageUrlFromPath($currentTitle.backdrop_path, 300)).useQuantizer(Vibrant.Quantizer.WebWorker)
             v.getPalette((err:any, palette:any) => {
                 if(err) return;
                 ultrablur = {
@@ -37,8 +39,6 @@
 
     
     onMount(async () => {
-        //const dpad = new DpadController();
-        //dpad.update();
         await import('$lib/utils/spatial_navigation.js');
         let SpatialNavigation = (<any>window).SpatialNavigation;
         SpatialNavigation.init();
@@ -57,7 +57,7 @@
 </script>
 
 <div class="app-shell" style="--ub-tl:{ultrablur.tl}; --ub-tr:{ultrablur.tr}; --ub-bl:{ultrablur.bl}; --ub-br:{ultrablur.br};" >
-    <div class="artwork" style="--artwork-image:{artworkImage}"></div>
+    <div class="artwork" style="--artwork-image:url({artworkImage})"></div>
     <div class="ui">
         <slot></slot>
     </div>

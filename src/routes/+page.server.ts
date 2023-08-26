@@ -1,12 +1,10 @@
-import { fetchTrending, fetctPopular } from '$lib/services/tmdb/service';
+import { fetchTrending, fetctNowPlaying, fetctPopular } from '$lib/services/tmdb';
 
 export async function load(){
 
-    const trending = await fetchTrending();
-    const popular = await fetctPopular();
-
     return {
-        trending: trending,
-        popular: popular
+        trending: await fetchTrending(),
+        popular: await fetctPopular(),
+        nowPlaying : await fetctNowPlaying()
     };
 };

@@ -1,11 +1,11 @@
 
-<div class="hubs">
+<div class="hub-group">
     <slot></slot>
 </div>
 
 
 <style lang="less">
-	.hubs{
+	.hub-group{
 		display: flex;
 		flex-flow:column nowrap;
 		overflow: hidden;

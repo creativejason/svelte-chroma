@@ -11,7 +11,6 @@
     let genres: string;
     let overview: string;
 	let clearLogo: any
-	let useClearLogo = true;
 
 	$: {
 		if ($currentTitle) {
@@ -22,22 +21,21 @@
             runtime = toHoursAndMinutes($currentTitle.runtime);
             genres = $currentTitle.genres.map((g: any) => g.name).join(', ');
             overview = $currentTitle.overview;
-			clearLogo = $currentTitle.clearLogo ? `./api/images/trim?url=${$currentTitle.clearLogo}` : null;
+			clearLogo = $currentTitle.hasClearLogo ? `./api/images/clearlogo/${$currentTitle.id}` : null;
 			console.log(clearLogo);
 		}
 	}
+
 </script>
 
 {#if $currentTitle}
 	<div class="metadata">
-		<div class="title-container">
-			{#if useClearLogo}
-				{#if $currentTitle.clearLogo}
-					<img class="clear-logo" src={clearLogo} alt="Clear Logo" />
-				{:else}
-					<h1>{title}</h1>
-				{/if}			
-			{/if}	
+		<div class="title-container">			
+			{#if clearLogo}
+				<img class="clear-logo" src={clearLogo} alt="Clear Logo" />
+			{:else}
+				<h1 id="text-title">{title}</h1>
+			{/if}
 		</div>	
 		<div class="attributes">
 			<p class="text-body-2">
@@ -57,7 +55,9 @@
 {/if}
 
 <style lang="less">
+
 	.metadata {
+		padding: 48px 80px 0 80px;
 		display: flex;
 		flex-flow: column nowrap;
 		gap: 16px;
@@ -65,13 +65,13 @@
 	.title-container {
 		display: flex;
 		align-items: end;
-		height: 160px;
-		width: 700px;
+		height: 200px;
+		width: 60%;
 	}
 	h1 {
 		color: var(--color-text-primary);
 		font-size: var(--font-tv-display-2-font-size);
-		text-shadow: 4px 4px 16px rgba(0,0,0,1);
+		text-shadow: 0 0 16px rgba(0,0,0,.3);
 	}
 	.clear-logo {
 		width: 100%;

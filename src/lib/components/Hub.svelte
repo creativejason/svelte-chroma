@@ -1,9 +1,10 @@
 <script lang="ts">
-    import { getTMDBImageUrlFromPath } from "$lib/utils/utils";
+    import { getTMDBImageUrlFromPath } from "$lib/services/tmdb";
     import PosterCard from "./PosterCard.svelte";
 
     export let metadataItems:any = []; 
     export let title:string | null = null; 
+    export let subtitle:string | null = null; 
 
     let scrolled = false;
     
@@ -21,6 +22,9 @@
 <div class="hub">
     {#if title}
          <h2>{title}</h2>
+         {#if subtitle}
+            <h2>{subtitle}</h2>
+        {/if}
     {/if}
     
         <ul on:scroll={handleScroll} class:scrolled={scrolled}>
@@ -46,6 +50,7 @@
         gap: 32px;
         list-style: none;
         overflow: hidden;
+        margin-top:-16px;
         padding:32px 0;
         padding-left:80px;
         &.scrolled{
