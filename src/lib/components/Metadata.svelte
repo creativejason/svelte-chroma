@@ -22,7 +22,6 @@
             genres = $currentTitle.genres.map((g: any) => g.name).join(', ');
             overview = $currentTitle.overview;
 			clearLogo = $currentTitle.hasClearLogo ? `./api/images/clearlogo/${$currentTitle.id}` : null;
-			console.log(clearLogo);
 		}
 	}
 

@@ -18,7 +18,6 @@
     $: {
         if($currentTitle){
             artworkImage = getTMDBImageUrlFromPath($currentTitle.backdrop_path, 1280);
-            console.log(artworkImage);
 
             let v = new Vibrant(getTMDBImageUrlFromPath($currentTitle.backdrop_path, 300))
             //let v = Vibrant.from(getTMDBImageUrlFromPath($currentTitle.backdrop_path, 300)).useQuantizer(Vibrant.Quantizer.WebWorker)

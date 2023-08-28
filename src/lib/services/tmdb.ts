@@ -1,10 +1,11 @@
-import { env } from '$env/dynamic/public';
-
+// TODO: Move API KEY to env variable
 // TODO: Develop cache for image urls
+
+const PUBLIC_TMDB_API_KEY = "45adfcd2d9670f40952762676f9d2097"
 
 async function makeTMDBRequest(uri:string, params:any = {}){
     let url = new URL(`https://api.themoviedb.org/3`+ uri);
-    params.api_key = env.PUBLIC_TMDB_API_KEY;
+    params.api_key = PUBLIC_TMDB_API_KEY;
     url.search = Object.keys(params).map((key: string) => key + '=' + params[key]).join('&');
     const res = await fetch(url);
     const data = await res.json();
@@ -19,7 +20,6 @@ export async function getMovieDetails(titleId:string){
     if(details.images.logos.length){
         details.hasClearLogo = true;
     }
-    console.log(details);
     return details;
 }
 
