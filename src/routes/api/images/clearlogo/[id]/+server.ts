@@ -78,7 +78,7 @@ async function adjustBrightness(img: Sharp) {
         });
     const brightness = Math.floor(avgColorVals / nonAlphaPixels);
     if (brightness < 30) {
-        console.log(`Image is brightness is low (${brightness}), fixing!`)
+        //console.log(`Image is brightness is low (${brightness}), fixing!`)
         img.grayscale()
         img.negate({ alpha: false });
     }

@@ -64,7 +64,7 @@
 	.title-container {
 		display: flex;
 		align-items: end;
-		height: 200px;
+		height: 160px;
 		width: 60%;
 	}
 	h1 {

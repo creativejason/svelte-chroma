@@ -21,8 +21,9 @@
 	}
 
 	onMount(async () => {
-		console.log(data);
-		currentTitleId.set(data.popular[0].id);
+		if(data.popular && data.popular[0]){
+			currentTitleId.set(data.popular[0].id);
+		}		
 	});
 
 </script>
