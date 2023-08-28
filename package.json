@@ -37,6 +37,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sveltejs/adapter-vercel": "^3.0.3",
 		"dotenv": "^16.0.3",
 		"node-vibrant": "^3.1.6",
 		"sharp": "^0.31.3",
