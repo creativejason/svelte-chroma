@@ -64,8 +64,8 @@
 	.title-container {
 		display: flex;
 		align-items: end;
-		height: 160px;
-		width: 60%;
+		height: 136px;
+		width: 760px;
 	}
 	h1 {
 		color: var(--color-text-primary);
