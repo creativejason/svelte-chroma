@@ -4,7 +4,7 @@ import * as imgService from '$lib/services/image';
 
 const TMDB_IMAGE_BASE_PATH = 'https://image.tmdb.org/t/p/w500/';
 const MIN_BRIGHTNESS = 75;
-const MIN_ASPECT_RATIO = 1.5;
+const MIN_ASPECT_RATIO = 1;
 const OPTIMAL_BRIGHTNESS_LOW = 100;
 const OPTIMAL_BRIGHTNESS_HIGH = 255;
 const OPTIMAL_ASPECT_LOW = 3;

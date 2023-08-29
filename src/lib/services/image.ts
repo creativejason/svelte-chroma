@@ -67,35 +67,3 @@ export async function analyzeBrightness(img: Sharp) {
     const brightness = Math.floor(avgColorVals / nonAlphaPixels);
     return brightness;
 }
-
-
-export async function adjustBrightness(img: Sharp) {
-    let testImg = img.clone();
-    let nonAlphaPixels = 0;
-    let avgColorVals = 0;
-    // Downsize the image for performance
-    await testImg.resize({ height: 60 })
-        .raw()
-        .toBuffer({ resolveWithObject: true })
-        .then(({ data, info }) => {
-            for (let x = 0, len = data.length; x < len; x += 4) {
-                let r = data[x];
-                let g = data[x + 1];
-                let b = data[x + 2];
-                let a = data[x + 3];
-
-                // Only include pixels with high enough alpa in the final calculation
-                if (a > 25) {
-                    nonAlphaPixels++;
-                    avgColorVals += Math.floor((r + g + b) / 3);
-                }
-            }
-        });
-    const brightness = Math.floor(avgColorVals / nonAlphaPixels);
-    if (brightness < 30) {
-        //console.log(`Image is brightness is low (${brightness}), fixing!`)
-        img.grayscale()
-        img.negate({ alpha: false });
-    }
-    return img;
-}
