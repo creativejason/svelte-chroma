@@ -79,8 +79,6 @@
 		height: 100%;
 		object-fit: contain;
 		object-position: left bottom;
-		-webkit-transition: all 1s ease-in-out;
-        transition: all 1s ease-in-out;
 	}
 	.attributes {
 		color: var(--color-text-muted);
