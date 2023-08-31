@@ -10,10 +10,12 @@
     let runtime: string;
     let genres: string;
     let overview: string;
-	let clearLogo: any
+	let clearLogo: any;
+	let showClearLogo: boolean = true;
 
 	$: {
 		if ($currentTitle) {
+			showClearLogo = true;
 			releaseYear = $currentTitle.release_date ? new Date($currentTitle.release_date).getFullYear() : 'Unknown';
 			parentalRating = $currentTitle.release_dates.results.find((r: any) => r.iso_3166_1 === 'US')?.release_dates[0]?.certification || 'NR';
 			topCast = $currentTitle.credits.cast.slice(0, 4).map((c: any) => c.name).join(', ');
@@ -21,7 +23,7 @@
             runtime = toHoursAndMinutes($currentTitle.runtime);
             genres = $currentTitle.genres.map((g: any) => g.name).join(', ');
             overview = $currentTitle.overview;
-			clearLogo = $currentTitle.hasClearLogo ? `./api/images/clearlogo/${$currentTitle.id}` : null;
+			clearLogo = `./api/images/clearlogo/${$currentTitle.id}`;
 		}
 	}
 
@@ -29,11 +31,11 @@
 
 {#if $currentTitle}
 	<div class="metadata">
-		<div class="title-container">			
-			{#if clearLogo}
-				<img class="clear-logo" src={clearLogo} alt="Clear Logo" />
+		<div class="title-container">
+			{#if showClearLogo}			
+			<img class="clear-logo" src={clearLogo} on:error={() => showClearLogo = false} alt="Clear Logo" />
 			{:else}
-				<h1 id="text-title">{title}</h1>
+			<h1 id="text-title">{title}</h1>
 			{/if}
 		</div>	
 		<div class="attributes">
@@ -77,6 +79,8 @@
 		height: 100%;
 		object-fit: contain;
 		object-position: left bottom;
+		-webkit-transition: all 1s ease-in-out;
+        transition: all 1s ease-in-out;
 	}
 	.attributes {
 		color: var(--color-text-muted);
