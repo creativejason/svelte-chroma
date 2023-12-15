@@ -4,7 +4,7 @@ export function hoverToFocus(node: HTMLElement) {
         node.focus();
     }
     
-    node.addEventListener("mouseenter", handleMouseEnter, true);
+    //node.addEventListener("mouseenter", handleMouseEnter, true);
     node.setAttribute("tabindex", "0");
 
 	return {
