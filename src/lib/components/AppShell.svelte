@@ -12,15 +12,34 @@
     };
 
     let artworkImage = "";
+    let ultrablurImage = "";
 
     // Update UltraBlur when a new title is set
     // TODO: Move this to current title detals values
     $: {
         if($currentTitle){
-            artworkImage = getTMDBImageUrlFromPath($currentTitle.backdrop_path, 1280);
+            // Getting some leading slashes at times so clean'em up until I can look deeper
+            const image = $currentTitle.backdrop_path.replace(/^\/+/g, '');
+            artworkImage = getTMDBImageUrlFromPath(image, 1280);
+            ultrablurImage = `https://ultrablur-redux.luma-4y3.pages.dev/api/fragment/ultrablur/image?url=https://images.plex.tv/photo?format%3Dpng%26size%3Dmedium-240%26url%3D${getTMDBImageUrlFromPath(image, 300)}`
+            console.log(ultrablurImage);
 
+            const ubColorsUrl = `https://ultrablur-redux.luma-4y3.pages.dev/api/fragment/ultrablur/colors?url=https://images.plex.tv/photo?format%3Dpng%26size%3Dmedium-240%26url%3D${getTMDBImageUrlFromPath(image, 300)}`;
+            fetch(ubColorsUrl)
+                .then(response => response.json())
+	            .then(data => {
+                    console.log(data);
+                    ultrablur = {
+                        tl: data.topLeft,
+                        tr: data.topRight,
+                        bl: data.bottomLeft,
+                        br: data.bottomRight
+                    }
+                });
+
+
+            /*
             let v = new Vibrant(getTMDBImageUrlFromPath($currentTitle.backdrop_path, 300))
-            //let v = Vibrant.from(getTMDBImageUrlFromPath($currentTitle.backdrop_path, 300)).useQuantizer(Vibrant.Quantizer.WebWorker)
             v.getPalette((err:any, palette:any) => {
                 if(err) return;
                 ultrablur = {
@@ -30,9 +49,11 @@
                     br: palette.Vibrant.getHex()
                 }
             })
+            */
         }
         else {
             artworkImage = "";
+            //ultrablurImage = "";
         }
 	}
 
@@ -94,15 +115,27 @@
         color: var(--color-text-default);
         width: 1920px;
         height: 1080px;
-        background-image:   radial-gradient(at top left, var(--ub-tl), transparent 60%),
-                            radial-gradient(at top right, var(--ub-tr), transparent 60%),
-                            radial-gradient(at bottom left, var(--ub-bl), transparent 60%),
-                            radial-gradient(at bottom right, var(--ub-br), transparent 60%);
+
+        
+        background-image:   radial-gradient(circle at top left, var(--ub-tl), transparent 60%),
+                            radial-gradient(circle at top right, var(--ub-tr), transparent 60%),
+                            radial-gradient(circle at bottom right, var(--ub-br), transparent 60%),
+                            radial-gradient(circle at bottom left, var(--ub-bl), transparent 60%);
+        
+
+/*
+        background-image:   radial-gradient(circle at top left, var(--ub-tl), var(--ub-tl) 50%, transparent 50%),
+                            radial-gradient(circle at top right, var(--ub-tr), var(--ub-tl) 50%, transparent 50%),
+                            radial-gradient(circle at bottom right, var(--ub-br), var(--ub-tl) 50%, transparent 50%),
+                            radial-gradient(circle at bottom left, var(--ub-bl), var(--ub-tl) 50%, transparent 50%);
+
+                            */
+                                         
         background-color: black;
         position: relative;
         overflow: hidden;
-        -webkit-transition: all 2s ease-in-out;
-        transition: --ub-tl 2s, --ub-tr 2s, --ub-bl 2s, --ub-br 2s;
+        transition: --ub-tl 1s, --ub-tr 1s, --ub-bl 1s, --ub-br 1s; 
+        
     }
 
     .ui{

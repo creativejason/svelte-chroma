@@ -54,8 +54,8 @@
         padding:32px 0;
         padding-left:80px;
         &.scrolled{
-            mask-image: linear-gradient(to right, transparent 32px, black 360px);
-            -webkit-mask-image: linear-gradient(to right, transparent 32px, black 360px);
+            mask-image: linear-gradient(to right, transparent 72px, black 360px);
+            -webkit-mask-image: linear-gradient(to right, transparent 72px, black 360px);
         }
     }
 </style>

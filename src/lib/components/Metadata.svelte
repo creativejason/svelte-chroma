@@ -58,7 +58,7 @@
 <style lang="less">
 
 	.metadata {
-		padding: 48px 80px 0 80px;
+		padding: 48px 80px 32px 80px;
 		display: flex;
 		flex-flow: column nowrap;
 		gap: 16px;
