@@ -153,8 +153,8 @@
 
     .artwork{
         position: absolute;
-        width: 60%;
-        height: 60%;
+        width: 64%;
+        height: 64%;
         background-color: transparent;
         top: 0;
         right: 0;
