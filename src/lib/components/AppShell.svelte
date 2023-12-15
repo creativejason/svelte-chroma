@@ -60,7 +60,6 @@
         }   
 	}
 
-    
     onMount(async () => {
         await import('$lib/utils/spatial_navigation.js');
         let SpatialNavigation = (<any>window).SpatialNavigation;
