@@ -120,10 +120,10 @@
         height: 1080px;
 
         
-        background-image:   radial-gradient(circle at top left, var(--ub-tl), transparent 60%),
-                            radial-gradient(circle at top right, var(--ub-tr), transparent 60%),
-                            radial-gradient(circle at bottom right, var(--ub-br), transparent 60%),
-                            radial-gradient(circle at bottom left, var(--ub-bl), transparent 60%);
+        background-image:   radial-gradient(circle at top left, var(--ub-tl), transparent 70%),
+                            radial-gradient(circle at top right, var(--ub-tr), transparent 70%),
+                            radial-gradient(circle at bottom right, var(--ub-br), transparent 70%),
+                            radial-gradient(circle at bottom left, var(--ub-bl), transparent 70%);
         
 
 /*
